@@ -1,6 +1,8 @@
-package best.fufushop.model;
+package best.fufushop.dto.product;
 
-import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,11 +10,9 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @Data
-@Entity
-@Table(name = "products")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class ProductUpdateRequest {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

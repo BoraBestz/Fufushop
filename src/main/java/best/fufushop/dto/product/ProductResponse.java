@@ -1,4 +1,4 @@
-package best.fufushop.model;
+package best.fufushop.dto.product;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,11 +8,9 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @Data
-@Entity
-@Table(name = "products")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class ProductResponse {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

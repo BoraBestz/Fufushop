@@ -1,9 +1,9 @@
-package best.fufushop.dto;
+package best.fufushop.dto.auth;
 
 import lombok.Data;
 
 @Data
-public class LoginRequest {
+public class AuthRequest {
     private String username;
     private String password;
 }

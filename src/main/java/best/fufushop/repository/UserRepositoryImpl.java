@@ -12,7 +12,6 @@ public class UserRepositoryImpl implements UserRepository{
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-
     @Override
     public User authentication(String username) {
         try {
@@ -22,6 +21,7 @@ public class UserRepositoryImpl implements UserRepository{
         }catch (EmptyResultDataAccessException e){
             return null;
         }
+
     }
     @Override
     public User register(String username, String password) {

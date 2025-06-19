@@ -1,5 +1,6 @@
 package best.fufushop.dto;
 
+import best.fufushop.enums.Status;
 import best.fufushop.model.Product;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -13,18 +14,20 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ApiResponse<T> {
-    private String status;
+    private Status status;
     private T data;
     private String message;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime timestamp = LocalDateTime.now();
 
-    public ApiResponse(String success, List<Product> products, String message) {
-        this.status = success;
+    public ApiResponse(Status status, List<Product> products, String message) {
+        this.status = status;
         this.data = (T) products;
         this.message = message;
         this.timestamp = LocalDateTime.now();
     }
+
+
 }
 

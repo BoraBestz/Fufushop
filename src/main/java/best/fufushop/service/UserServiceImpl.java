@@ -1,8 +1,7 @@
 package best.fufushop.service;
 
-import best.fufushop.dto.ChangePasswordRequest;
-import best.fufushop.dto.LoginRequest;
-import best.fufushop.dto.RegisterRequest;
+import best.fufushop.dto.auth.AuthRequest;
+import best.fufushop.dto.auth.ChangePasswordRequest;
 import best.fufushop.model.User;
 import best.fufushop.repository.UserRepository;
 import best.fufushop.util.PasswordUtil;
@@ -19,7 +18,7 @@ public class UserServiceImpl implements UserService{
     private PasswordUtil passwordUtil;
 
     @Override
-    public User authenticate(LoginRequest request) {
+    public User authenticate(AuthRequest request) {
         User user = userRepository.authentication(request.getUsername());
         if (user == null) {
             throw new UsernameNotFoundException("ไม่พบผู้ใช้");
@@ -48,7 +47,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User register (RegisterRequest request){
+    public User register (AuthRequest request){
         String hashedPassword = passwordUtil.hashPasswordWithBCrypt(request.getPassword());
         return userRepository.register(request.getUsername(), hashedPassword);
     }

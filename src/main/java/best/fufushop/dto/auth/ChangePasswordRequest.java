@@ -1,4 +1,4 @@
-package best.fufushop.dto;
+package best.fufushop.dto.auth;
 
 import lombok.Data;
 

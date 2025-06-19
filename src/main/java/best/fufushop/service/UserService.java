@@ -1,15 +1,14 @@
 package best.fufushop.service;
 
-import best.fufushop.dto.ChangePasswordRequest;
-import best.fufushop.dto.LoginRequest;
-import best.fufushop.dto.RegisterRequest;
+import best.fufushop.dto.auth.AuthRequest;
+import best.fufushop.dto.auth.ChangePasswordRequest;
 import best.fufushop.model.User;
 import org.springframework.stereotype.Service;
 
 @Service
 public interface UserService {
-    User authenticate(LoginRequest request);
-    User register(RegisterRequest request);
+    User authenticate(AuthRequest request);
+    User register(AuthRequest request);
     User changePassword(ChangePasswordRequest request);
     User findById(Long id);
     User update(User user);
