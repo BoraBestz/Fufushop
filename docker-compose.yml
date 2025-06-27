@@ -3,8 +3,6 @@ version: '3.8'
 services:
   db:
     image: mysql:8.3
-    container_name: mysql-db
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 1234
       MYSQL_DATABASE: web-shopping
@@ -12,23 +10,17 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
-    networks:
-      - rabbitnet
 
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: spring-api
+    build: .
     depends_on:
       - db
     ports:
       - "8080:8080"
-    networks:
-      - rabbitnet
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/web-shopping
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 1234
 
 volumes:
   db_data:
-
-networks:
-  rabbitnet:
