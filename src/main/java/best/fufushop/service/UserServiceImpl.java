@@ -48,6 +48,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User register (AuthRequest request){
+        if (userRepository.authentication(request.getUsername()) != null) {
+            throw new BadCredentialsException("ชื่อผู้ใช้มีอยู่แล้ว");
+        }
         String hashedPassword = passwordUtil.hashPasswordWithBCrypt(request.getPassword());
         return userRepository.register(request.getUsername(), hashedPassword);
     }
