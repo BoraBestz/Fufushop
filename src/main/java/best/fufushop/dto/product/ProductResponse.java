@@ -25,4 +25,10 @@ public class ProductResponse {
     private Integer productStock;
 
     private String productImageUrl;
-} 
+
+    public ProductResponse(Long productId, String productName, BigDecimal productPrice) {
+        this.productId = productId;
+        this.productName = productName;
+        this.productPrice = productPrice;
+    }
+}
