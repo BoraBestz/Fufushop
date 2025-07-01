@@ -3,7 +3,7 @@
 **Fufushop API** is a backend RESTful service for an online rabbit supplies store, built with **Spring Boot**.  
 This project focuses on providing secure, modular, and testable APIs for user authentication and product management.
 
----
+> ⚠️ This project is a personal side project and development progresses during my free time.
 
 ## ⚙️ Tech Stack
 
